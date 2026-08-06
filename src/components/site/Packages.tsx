@@ -40,7 +40,6 @@ export function PackageCard({ pkg, index = 0 }: { pkg: Pkg; index?: number }) {
         >
           {pkg.best}
         </p>
-        <p className="mt-6 font-display text-2xl text-gold">Starting from {pkg.price}</p>
         {pkg.inherits && (
           <p
             className={cn(

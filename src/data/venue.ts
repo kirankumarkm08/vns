@@ -154,21 +154,18 @@ export type Pkg = {
   name: string;
   badge: string;
   best: string;
-  price: string;
   cta: string;
   inherits?: string;
   features: string[];
   featured?: boolean;
 };
 
-/** Replace price strings with real figures when confirmed. */
 export const packages: Pkg[] = [
   {
     slug: "gold",
     name: "Gold Package",
     badge: "Essential",
     best: "Best for simple, elegant, budget-conscious celebrations.",
-    price: "₹[Gold Price]",
     cta: "Choose Gold",
     features: [
       "Convention hall access",
@@ -187,7 +184,6 @@ export const packages: Pkg[] = [
     name: "Platinum Package",
     badge: "Most Popular",
     best: "Best for full-service weddings and large family celebrations.",
-    price: "₹[Platinum Price]",
     cta: "Choose Platinum",
     inherits: "Everything in Gold, plus:",
     featured: true,
@@ -210,7 +206,6 @@ export const packages: Pkg[] = [
     name: "Diamond Package",
     badge: "Luxury Experience",
     best: "Best for luxury weddings, premium receptions and major events.",
-    price: "₹[Diamond Price]",
     cta: "Choose Diamond",
     inherits: "Everything in Platinum, plus:",
     features: [

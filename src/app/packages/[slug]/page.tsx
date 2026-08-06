@@ -95,7 +95,6 @@ export default async function PackageDetail({ params }: { params: Promise<{ slug
               title={`Inside the ${pkg.name.replace(" Package", "")} experience`}
               description={pkg.inherits}
             />
-            <p className="mt-8 font-display text-3xl text-gold">Starting from {pkg.price}</p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {pkg.features.map((f, i) => (
                 <Reveal key={f} index={i % 4}>

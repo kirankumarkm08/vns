@@ -168,3 +168,26 @@
     transform: scale(1.06);
   }
 }
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.74 0.1 82 / 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 6px oklch(0.74 0.1 82 / 0);
+  }
+}
+
+@utility nav-pill {
+  position: relative;
+  border: 1px solid var(--gold);
+  border-radius: 9999px;
+  padding: 0.45rem 1.1rem;
+  color: var(--gold);
+  animation: glow-pulse 2.4s ease-in-out infinite;
+  &:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+}

@@ -85,7 +85,6 @@ const packages = [
   {
     name: "Silver",
     motif: "Sandalwood",
-    price: "Rs. 2.5L",
     note: "Half-Day | Up to 250 Guests",
     href: "/booking?package=Silver",
     features: [
@@ -99,7 +98,6 @@ const packages = [
   {
     name: "Gold",
     motif: "Marigold",
-    price: "Rs. 4.8L",
     note: "Full-Day | Up to 500 Guests",
     href: "/booking?package=Gold",
     features: [
@@ -113,7 +111,6 @@ const packages = [
   {
     name: "Platinum",
     motif: "Kanchipuram",
-    price: "Rs. 7.2L",
     note: "Two-Day | Up to 800 Guests",
     href: "/booking?package=Platinum",
     features: [
@@ -127,7 +124,6 @@ const packages = [
   {
     name: "Diamond",
     motif: "Chola Royal",
-    price: "Rs. 12L+",
     note: "Full Property | 1500+ Guests",
     href: "/booking?package=Diamond",
     featured: true,
@@ -218,43 +214,18 @@ function Intro({
 export function DivineHero() {
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster={images.hero}
+      <img
+        src={images.hero}
+        alt=""
+        aria-hidden="true"
+        width={1920}
+        height={1088}
+        fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src="/video/vns.mp4" type="video/mp4" />
-      </video>
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/95 via-ink/84 to-ink/78" />
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pt-28 sm:px-6 lg:px-8 lg:pt-32">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-ivory/15 pb-5 text-ivory">
-          <div>
-            <p className="font-display text-2xl leading-none">{venue.name}</p>
-            <p className="mt-1 text-[0.65rem] uppercase tracking-[0.24em] text-ivory/60">
-              Convention Hall | Bangalore South
-            </p>
-          </div>
-          <nav className="hidden items-center gap-5 lg:flex" aria-label="Celebration page">
-            {navAnchors.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-xs uppercase tracking-[0.16em] text-ivory/70 transition-colors hover:text-gold"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <Button asChild variant="gold" size="lg">
-            <Link href="/booking">Book Now</Link>
-          </Button>
-        </div>
-
         <div className="grid flex-1 items-center gap-12 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:py-16">
           <div className="order-2 lg:order-1">
             <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
@@ -278,17 +249,15 @@ export function DivineHero() {
           </div>
 
           <div className="order-1 text-center lg:order-2">
-            <p className="eyebrow">South India's Grandest Stage</p>
-            <p className="eyebrow mt-5">Bangalore South's Most Celebrated Event Destination</p>
+            <p className="eyebrow">Bangalore South&apos;s Most Celebrated Event Destination</p>
             <h1 className="mt-6 text-6xl leading-none text-ivory sm:text-7xl lg:text-8xl">
               Venus <span className="text-gold">Park</span>
             </h1>
             <p className="mt-5 font-display text-sm uppercase tracking-[0.45em] text-ivory/80 sm:text-base">
               Convention Hall
             </p>
-            <Ornament className="mt-7" />
             <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-ivory/76">
-              Where the colours of South India's festivals meet the elegance of every cherished
+              Where the colours of South India&apos;s festivals meet the elegance of every cherished
               celebration - your most divine moments begin here.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -319,17 +288,6 @@ export function DivineHero() {
             </a>
           </div>
         </div>
-
-        <dl className="grid grid-cols-2 gap-px border-t border-ivory/15 bg-ivory/15 text-center sm:grid-cols-3 lg:grid-cols-5">
-          {heroStats.map((stat) => (
-            <div key={stat.label} className="bg-ink/40 px-4 py-7 backdrop-blur">
-              <dt className="font-display text-4xl text-ivory">{stat.value}</dt>
-              <dd className="mt-2 text-[0.68rem] uppercase tracking-[0.18em] text-ivory/60">
-                {stat.label}
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );
@@ -446,7 +404,6 @@ export function CuratedPackages() {
               )}
               <p className="eyebrow">{tier.motif}</p>
               <h3 className="mt-3 font-display text-3xl">{tier.name}</h3>
-              <p className="mt-5 font-display text-4xl text-gold">{tier.price}</p>
               <p
                 className={cn(
                   "mt-3 text-xs uppercase tracking-[0.14em]",

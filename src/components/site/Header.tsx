@@ -10,6 +10,7 @@ import { venue } from "@/data/venue";
 import { cn } from "@/lib/utils";
 
 const nav = [
+  { label: "Venus Park", to: "/venus-park", pill: true },
   { label: "Home", to: "/" },
   { label: "Halls", to: "/#halls" },
   { label: "Gallery", to: "/#gallery" },
@@ -72,16 +73,20 @@ export function Header() {
                 <Link
                   key={item.to + item.label}
                   href={item.to}
-                  className={cn(
-                    "text-[0.78rem] uppercase tracking-[0.14em] transition-colors",
-                    active
-                      ? scrolled
-                        ? "text-foreground"
-                        : "text-ivory"
-                      : scrolled
-                        ? "text-muted-foreground hover:text-foreground"
-                        : "text-ivory/75 hover:text-ivory",
-                  )}
+                  className={
+                    item.pill
+                      ? "nav-pill text-[0.78rem] uppercase tracking-[0.14em] transition-colors"
+                      : cn(
+                          "text-[0.78rem] uppercase tracking-[0.14em] transition-colors",
+                          active
+                            ? scrolled
+                              ? "text-foreground"
+                              : "text-ivory"
+                            : scrolled
+                              ? "text-muted-foreground hover:text-foreground"
+                              : "text-ivory/75 hover:text-ivory",
+                        )
+                  }
                   aria-current={active ? "page" : undefined}
                 >
                   {item.label}

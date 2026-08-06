@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     title: "Venus Park — Convention Hall",
     description:
       "Where the colours of South India's festivals meet the elegance of every cherished celebration.",
-    url: "/home",
+    url: "/venus-park",
   },
-  alternates: { canonical: "/home" },
+  alternates: { canonical: "/venus-park" },
 };
 
-export default function HomeLanding() {
+export default function VenusParkLanding() {
   return (
     <>
       <DivineHero />
