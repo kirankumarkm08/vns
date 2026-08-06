@@ -218,15 +218,17 @@ function Intro({
 export function DivineHero() {
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
-      <img
-        src={images.hero}
-        alt=""
-        aria-hidden="true"
-        width={1920}
-        height={1088}
-        fetchPriority="high"
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={images.hero}
         className="absolute inset-0 h-full w-full object-cover"
-      />
+      >
+        <source src="/video/vns.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-b from-ink/95 via-ink/84 to-ink/78" />
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pt-28 sm:px-6 lg:px-8 lg:pt-32">
