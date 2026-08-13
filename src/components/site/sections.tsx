@@ -144,6 +144,7 @@ export function EventCategories() {
 
 /* ----------------------------------------------------------- Facilities */
 
+// Facilities are listed in a grid with icons and notes, no images.
 export function Facilities() {
   return (
     <Section id="facilities">
@@ -152,6 +153,7 @@ export function Facilities() {
         title="Everything Your Event Needs, On Site"
         align="center"
       />
+    
       <div className="mt-14 flex flex-wrap justify-center gap-px border border-border bg-border">
         {facilities.map((f, i) => (
           <Reveal
