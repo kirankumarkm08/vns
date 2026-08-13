@@ -27,8 +27,9 @@ export default function HomePage() {
     <>
       <DivineHero video />
       <Pavilions />
-      <GrandStage />
       <CuratedPackages />
+      <GrandStage />
+
       <FamilyStories />
       <ReserveCta />
     </>
