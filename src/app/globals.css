@@ -290,6 +290,7 @@
     0 30px 70px -30px var(--glow, oklch(0 0 0 / 0.35)),
     inset 0 0 0 1px oklch(1 0 0 / 0.4);
 }
+<<<<<<< HEAD
 /* =========================================================
    SPECIAL OFFER - SUN GLOW BOX
    ========================================================= */
@@ -785,3 +786,5 @@
 .animate-gallery-slide {
   animation: gallery-slide 0.8s ease-out;
 }
+=======
+>>>>>>> d115516f1fab481c412f8c7f8bfe13d5c6b081a2
