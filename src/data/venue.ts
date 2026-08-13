@@ -5,12 +5,12 @@
 
 export const venue = {
   name: "Venus Park",
-  tagline: "Convention Hall · Bangalore South",
-  phoneDisplay: "+91 98455 23456",
-  phone: "+919845523456",
-  phoneAltDisplay: "+91 99000 09115",
-  phoneAlt: "+919900009115",
-  whatsapp: "919845523456",
+  tagline: " And Convention Hall · Bangalore South",
+  phoneDisplay: "+91 96119 12121",
+  phone: "+919611912121",
+  phoneAltDisplay: "+91 96119 12121",
+  phoneAlt: "+919611912121",
+  whatsapp: "919611912121",
   email: "vns.park25@gmail.com",
   addressLines: [
     "Venus Park Convention Centre",
@@ -223,6 +223,42 @@ export const packages: Pkg[] = [
       "Extended venue access",
       "Complete event execution support",
     ],
+  },
+];
+
+export type PricingTier = {
+  slug: "silver" | "gold" | "platinum" | "diamond";
+  name: string;
+  price: number;
+  tagline: string;
+  featured?: boolean;
+};
+
+export const pricingTiers: PricingTier[] = [
+  {
+    slug: "silver",
+    name: "Silver",
+    price: 49999,
+    tagline: "Intimate celebrations",
+  },
+  {
+    slug: "gold",
+    name: "Gold",
+    price: 149999,
+    tagline: "Essential weddings",
+  },
+  {
+    slug: "platinum",
+    name: "Platinum",
+    price: 249999,
+    tagline: "Full-service events",
+    featured: true,
+  },
+  {
+    slug: "diamond",
+    name: "Diamond",
+    price: 499999,
+    tagline: "Luxury experiences",
   },
 ];
 

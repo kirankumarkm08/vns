@@ -6,14 +6,16 @@ import {
   Crown,
   Gem,
   HeartHandshake,
+  MapPin,
   Sparkles,
   Star,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { galleryItems, images } from "@/data/images";
-import { venue } from "@/data/venue";
+import { mapsDirectionsUrl, mapsEmbedSrc, pricingTiers, venue } from "@/data/venue";
 import { cn } from "@/lib/utils";
+import { HeroVideo } from "./HeroVideo";
 import { Reveal } from "./Reveal";
 import { Section } from "./Section";
 
@@ -138,6 +140,12 @@ const packages = [
   },
 ];
 
+const packagePrices = new Map(pricingTiers.map((tier) => [tier.name, tier.price]));
+const inr = (price: number) => `\u20B9${price.toLocaleString("en-IN")}`;
+const locationQrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=520x520&margin=12&data=${encodeURIComponent(
+  mapsDirectionsUrl,
+)}`;
+
 const stories = [
   {
     quote:
@@ -213,21 +221,7 @@ function Intro({
 
 export function DivineHero({ video = false }: { video?: boolean }) {
   if (video) {
-    return (
-      <section id="home" className="relative min-h-screen overflow-hidden bg-ink">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={images.hero}
-          className="absolute left-1/2 top-1/2 h-[100vw] w-[100vh] max-w-none -translate-x-1/2 -translate-y-1/2 rotate-270 object-cover"
-        >
-          <source src="/video/vns.mp4" type="video/mp4" />
-        </video>
-      </section>
-    );
+    return <HeroVideo poster={images.hero} />;
   }
 
   return (
@@ -319,6 +313,57 @@ export function Pavilions() {
         title="Halls Crafted for Celebration"
         description="Twelve premium halls. Twelve different moods. From intimate gatherings to grand royal weddings, every space tells a story."
       />
+      <div className="mt-14 grid overflow-hidden border border-border bg-card shadow-[var(--shadow-soft)] lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="flex flex-col justify-between p-7 sm:p-9">
+          <div>
+            <p className="eyebrow">Find Us</p>
+            <h3 className="mt-3 font-display text-3xl text-foreground">Scan for Directions</h3>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+              Scan the QR code to open Venus Park on Google Maps, or use the map beside it to view
+              the venue location.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-[220px_1fr] sm:items-end lg:grid-cols-1 lg:items-start xl:grid-cols-[220px_1fr] xl:items-end">
+            <a
+              href={mapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full max-w-[260px] border border-border bg-white p-3 transition-transform duration-300 hover:-translate-y-1"
+              aria-label={`Open directions to ${venue.name}`}
+            >
+              <img
+                src={locationQrSrc}
+                alt={`QR code for directions to ${venue.name}`}
+                width={520}
+                height={520}
+                className="aspect-square w-full object-contain"
+                loading="lazy"
+              />
+            </a>
+            <div className="space-y-4">
+              <address className="space-y-1 text-sm not-italic leading-relaxed text-muted-foreground">
+                {venue.addressLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
+              <Button asChild variant="outline" size="lg">
+                <a href={mapsDirectionsUrl} target="_blank" rel="noopener noreferrer">
+                  <MapPin /> Get Directions
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <iframe
+          title={`Map showing ${venue.name}`}
+          src={mapsEmbedSrc}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="h-80 w-full border-t border-border lg:h-full lg:min-h-[420px] lg:border-l lg:border-t-0"
+        />
+      </div>
       <div className="mt-14 grid gap-6 md:grid-cols-2">
         {halls.map((hall, index) => (
           <Reveal key={hall.name} index={index % 4}>
@@ -411,7 +456,7 @@ export function CuratedPackages() {
           <Reveal key={tier.name} index={index % 4}>
             <article
               className={cn(
-                "card-elegant relative flex h-full flex-col p-7",
+                "card-elegant relative flex h-full flex-col overflow-hidden p-7",
                 tier.featured && "border-gold bg-ink text-ivory",
               )}
             >
@@ -444,6 +489,40 @@ export function CuratedPackages() {
                   </li>
                 ))}
               </ul>
+              <div
+                className={cn(
+                  "mt-8 border-t pt-6",
+                  tier.featured ? "border-ivory/15" : "border-border",
+                )}
+              >
+                <p
+                  className={cn(
+                    "text-[0.65rem] uppercase tracking-[0.2em]",
+                    tier.featured ? "text-ivory/55" : "text-muted-foreground",
+                  )}
+                >
+                  Starting at
+                </p>
+                <p
+                  className={cn(
+                    "mt-1 font-display text-4xl leading-none",
+                    tier.featured ? "text-gold" : "text-foreground",
+                  )}
+                >
+                  {inr(packagePrices.get(tier.name) ?? 0)}
+                </p>
+                <Link
+                  href={tier.href}
+                  className={cn(
+                    "mt-4 inline-flex items-center gap-1.5 text-[0.7rem] uppercase tracking-[0.18em] underline-offset-4 transition-colors hover:underline",
+                    tier.featured
+                      ? "text-ivory/70 hover:text-gold"
+                      : "text-muted-foreground hover:text-gold",
+                  )}
+                >
+                  Check availability <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
               <Button
                 asChild
                 variant={tier.featured ? "gold" : "outline"}

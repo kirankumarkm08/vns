@@ -32,14 +32,13 @@ export function Header() {
   }, []);
 
   const isActive = (to: string) => to === "/" && pathname === "/";
+  const isVisible = scrolled || open;
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled
-          ? "border-b border-border/70 bg-background/95 py-2 backdrop-blur-md shadow-[var(--shadow-soft)]"
-          : "border-b border-transparent py-4 text-ivory",
+        "fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/95 py-2 shadow-[var(--shadow-soft)] backdrop-blur-md transition-all duration-500",
+        isVisible ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0",
       )}
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:px-6 lg:px-8">
@@ -79,12 +78,8 @@ export function Header() {
                       : cn(
                           "text-[0.78rem] uppercase tracking-[0.14em] transition-colors",
                           active
-                            ? scrolled
-                              ? "text-foreground"
-                              : "text-ivory"
-                            : scrolled
-                              ? "text-muted-foreground hover:text-foreground"
-                              : "text-ivory/75 hover:text-ivory",
+                            ? "text-foreground"
+                            : "text-muted-foreground hover:text-foreground",
                         )
                   }
                   aria-current={active ? "page" : undefined}

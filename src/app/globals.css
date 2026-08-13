@@ -191,3 +191,102 @@
     color: var(--ink);
   }
 }
+
+/* ------------------------------------------------ Pricing badges */
+
+@keyframes badge-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.badge-float {
+  animation: badge-float 5.5s ease-in-out infinite;
+}
+
+@keyframes badge-shine {
+  0%,
+  45% {
+    transform: translateX(0) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(340%) skewX(-18deg);
+  }
+}
+
+.badge-shine {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -60%;
+  width: 60%;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, oklch(1 0 0 / 0.55) 50%, transparent 100%);
+  transform: translateX(0) skewX(-18deg);
+  animation: badge-shine 4.8s ease-in-out infinite;
+}
+
+@keyframes badge-sweep {
+  0% {
+    transform: translateX(0) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(440%) skewX(-18deg);
+  }
+}
+
+.badge-sweep {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -80%;
+  width: 50%;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, oklch(1 0 0 / 0.7) 50%, transparent 100%);
+  transform: translateX(0) skewX(-18deg);
+  opacity: 0;
+}
+
+.group:hover .badge-sweep {
+  opacity: 1;
+  animation: badge-sweep 0.75s ease-out 1;
+}
+
+@keyframes emblem-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(1 0 0 / 0);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 7px oklch(1 0 0 / 0.4);
+    transform: scale(1.06);
+  }
+}
+
+.badge-emblem {
+  animation: emblem-breathe 3.2s ease-in-out infinite;
+}
+
+.badge-price {
+  text-shadow:
+    0 1px 0 oklch(1 0 0 / 0.7),
+    0 -1px 1px oklch(0 0 0 / 0.22);
+}
+
+.badge-card {
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.55s ease;
+}
+
+.badge-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 30px 70px -30px var(--glow, oklch(0 0 0 / 0.35)),
+    inset 0 0 0 1px oklch(1 0 0 / 0.4);
+}
