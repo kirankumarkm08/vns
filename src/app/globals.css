@@ -1,0 +1,787 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Venus Park — luxury convention hall design system.
+ * Charcoal ink, warm ivory, gold accents, neutral beige sections.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ivory: var(--ivory);
+  --color-sand: var(--sand);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --shadow-soft: 0 2px 8px -4px oklch(0.2 0.01 60 / 0.12);
+  --shadow-elegant: 0 24px 60px -30px oklch(0.2 0.01 60 / 0.35);
+  --shadow-gold: 0 20px 50px -24px oklch(0.72 0.12 82 / 0.55);
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.99 0.005 90);
+  --foreground: oklch(0.22 0.008 70);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.008 70);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.008 70);
+  --primary: oklch(0.21 0.008 70);
+  --primary-foreground: oklch(0.975 0.008 88);
+  --secondary: oklch(0.955 0.011 88);
+  --secondary-foreground: oklch(0.24 0.008 70);
+  --muted: oklch(0.955 0.011 88);
+  --muted-foreground: oklch(0.5 0.012 75);
+  --accent: oklch(0.945 0.02 85);
+  --accent-foreground: oklch(0.28 0.02 70);
+  --destructive: oklch(0.55 0.19 25);
+  --destructive-foreground: oklch(0.98 0.005 90);
+  --border: oklch(0.9 0.012 85);
+  --input: oklch(0.89 0.012 85);
+  --ring: oklch(0.74 0.1 82);
+
+  --gold: oklch(0.74 0.1 82);
+  --gold-soft: oklch(0.88 0.055 85);
+  --ink: oklch(0.19 0.008 70);
+  --ink-soft: oklch(0.3 0.008 70);
+  --ivory: oklch(0.975 0.012 88);
+  --sand: oklch(0.945 0.016 84);
+}
+
+.dark {
+  --background: oklch(0.19 0.008 70);
+  --foreground: oklch(0.96 0.008 88);
+  --card: oklch(0.23 0.008 70);
+  --card-foreground: oklch(0.96 0.008 88);
+  --popover: oklch(0.23 0.008 70);
+  --popover-foreground: oklch(0.96 0.008 88);
+  --primary: oklch(0.96 0.008 88);
+  --primary-foreground: oklch(0.19 0.008 70);
+  --secondary: oklch(0.27 0.008 70);
+  --secondary-foreground: oklch(0.96 0.008 88);
+  --muted: oklch(0.27 0.008 70);
+  --muted-foreground: oklch(0.72 0.01 80);
+  --accent: oklch(0.3 0.02 75);
+  --accent-foreground: oklch(0.96 0.008 88);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.74 0.1 82);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+@utility rule-gold {
+  &::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 1px;
+    margin-top: 1rem;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+}
+
+@utility card-elegant {
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.4s ease,
+    border-color 0.4s ease;
+  &:hover {
+    box-shadow: var(--shadow-elegant);
+    border-color: var(--gold-soft);
+    transform: translateY(-4px);
+  }
+}
+
+@utility media-zoom {
+  overflow: hidden;
+  & img {
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  &:hover img {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.74 0.1 82 / 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 6px oklch(0.74 0.1 82 / 0);
+  }
+}
+
+@utility nav-pill {
+  position: relative;
+  border: 1px solid var(--gold);
+  border-radius: 9999px;
+  padding: 0.45rem 1.1rem;
+  color: var(--gold);
+  animation: glow-pulse 2.4s ease-in-out infinite;
+  &:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+}
+
+/* ------------------------------------------------ Pricing badges */
+
+@keyframes badge-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.badge-float {
+  animation: badge-float 5.5s ease-in-out infinite;
+}
+
+@keyframes badge-shine {
+  0%,
+  45% {
+    transform: translateX(0) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(340%) skewX(-18deg);
+  }
+}
+
+.badge-shine {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -60%;
+  width: 60%;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, oklch(1 0 0 / 0.55) 50%, transparent 100%);
+  transform: translateX(0) skewX(-18deg);
+  animation: badge-shine 4.8s ease-in-out infinite;
+}
+
+@keyframes badge-sweep {
+  0% {
+    transform: translateX(0) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(440%) skewX(-18deg);
+  }
+}
+
+.badge-sweep {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -80%;
+  width: 50%;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, oklch(1 0 0 / 0.7) 50%, transparent 100%);
+  transform: translateX(0) skewX(-18deg);
+  opacity: 0;
+}
+
+.group:hover .badge-sweep {
+  opacity: 1;
+  animation: badge-sweep 0.75s ease-out 1;
+}
+
+@keyframes emblem-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(1 0 0 / 0);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 7px oklch(1 0 0 / 0.4);
+    transform: scale(1.06);
+  }
+}
+
+.badge-emblem {
+  animation: emblem-breathe 3.2s ease-in-out infinite;
+}
+
+.badge-price {
+  text-shadow:
+    0 1px 0 oklch(1 0 0 / 0.7),
+    0 -1px 1px oklch(0 0 0 / 0.22);
+}
+
+.badge-card {
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.55s ease;
+}
+
+.badge-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 30px 70px -30px var(--glow, oklch(0 0 0 / 0.35)),
+    inset 0 0 0 1px oklch(1 0 0 / 0.4);
+}
+/* =========================================================
+   SPECIAL OFFER - SUN GLOW BOX
+   ========================================================= */
+
+.offer-sun-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 125px;
+
+  margin-top: 2px;
+  margin-bottom: 2px;
+
+  isolation: isolate;
+}
+
+/* ---------------------------------------------------------
+   MAIN BOX
+   --------------------------------------------------------- */
+
+.offer-sun-content {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 105px;
+
+  padding: 18px 20px;
+
+  border: 1px solid rgba(255, 183, 77, 0.7);
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 190, 70, 0.25) 0%,
+      rgba(255, 140, 30, 0.10) 35%,
+      transparent 72%
+    ),
+    rgba(255, 255, 255, 0.72);
+
+  box-shadow:
+    0 0 10px rgba(255, 166, 45, 0.35),
+    0 0 25px rgba(255, 166, 45, 0.22),
+    inset 0 0 18px rgba(255, 195, 80, 0.12);
+
+  overflow: hidden;
+
+  animation:
+    offerSunGlow 2.2s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   SPECIAL OFFER TEXT
+   --------------------------------------------------------- */
+
+.offer-title {
+  position: relative;
+  z-index: 3;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 14px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    #ef4444,
+    #f97316
+  );
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  box-shadow:
+    0 4px 12px rgba(239, 68, 68, 0.3);
+
+  animation: offerBadgePulse 1.8s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   YELLOW DOT
+   --------------------------------------------------------- */
+
+.offer-dot {
+  position: relative;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #ffe27a;
+
+  box-shadow:
+    0 0 5px #ffe27a,
+    0 0 12px rgba(255, 226, 122, 0.9);
+
+  animation: offerDotBlink 1s ease-in-out infinite;
+}
+
+.offer-dot::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 226, 122, 0.7);
+
+  animation: offerDotRing 1.4s ease-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   PRICE
+   --------------------------------------------------------- */
+
+.offer-price {
+  position: relative;
+  z-index: 3;
+
+  margin-top: 10px;
+
+  font-family: var(--font-display, serif);
+  font-size: 2.3rem;
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+
+  color: #1c1917;
+
+  text-shadow:
+    0 1px 0 #ffffff,
+    0 2px 0 rgba(255, 255, 255, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.15);
+
+  animation: priceGlow 2.2s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   SUN RAYS
+   --------------------------------------------------------- */
+
+.offer-ray {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  z-index: 1;
+
+  width: 4px;
+  height: 32px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 202, 72, 0.95),
+    rgba(255, 150, 30, 0)
+  );
+
+  transform-origin: 50% 80px;
+
+  opacity: 0;
+
+  filter: blur(0.3px);
+
+  animation: sunRayBlink 2.2s ease-in-out infinite;
+}
+
+
+/* Individual rays */
+
+.ray-1 {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.ray-2 {
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation-delay: 0.15s;
+}
+
+.ray-3 {
+  transform: translate(-50%, -50%) rotate(90deg);
+  animation-delay: 0.3s;
+}
+
+.ray-4 {
+  transform: translate(-50%, -50%) rotate(135deg);
+  animation-delay: 0.45s;
+}
+
+.ray-5 {
+  transform: translate(-50%, -50%) rotate(180deg);
+  animation-delay: 0.6s;
+}
+
+.ray-6 {
+  transform: translate(-50%, -50%) rotate(225deg);
+  animation-delay: 0.75s;
+}
+
+.ray-7 {
+  transform: translate(-50%, -50%) rotate(270deg);
+  animation-delay: 0.9s;
+}
+
+.ray-8 {
+  transform: translate(-50%, -50%) rotate(315deg);
+  animation-delay: 1.05s;
+}
+
+
+/* ---------------------------------------------------------
+   MOVING SHINE INSIDE BOX
+   --------------------------------------------------------- */
+
+.offer-shine {
+  position: absolute;
+
+  top: -50%;
+  left: -80%;
+
+  z-index: 4;
+
+  width: 45%;
+  height: 200%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+
+  transform: rotate(20deg);
+
+  pointer-events: none;
+
+  animation: offerShine 3.5s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   FEATURED / DIAMOND VERSION
+   --------------------------------------------------------- */
+
+.offer-sun-box-featured .offer-sun-content {
+  border-color: rgba(212, 175, 55, 0.85);
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(212, 175, 55, 0.30) 0%,
+      rgba(120, 80, 10, 0.18) 35%,
+      transparent 75%
+    ),
+    rgba(20, 17, 14, 0.96);
+
+  box-shadow:
+    0 0 12px rgba(212, 175, 55, 0.5),
+    0 0 30px rgba(212, 175, 55, 0.28),
+    0 0 60px rgba(212, 175, 55, 0.12),
+    inset 0 0 25px rgba(212, 175, 55, 0.12);
+}
+
+.offer-sun-box-featured .offer-price {
+  color: #d4af37;
+
+  text-shadow:
+    0 1px 0 #fff2bd,
+    0 2px 0 #c49a2d,
+    0 3px 0 #a87d18,
+    0 5px 10px rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(212, 175, 55, 0.35);
+}
+
+.offer-sun-box-featured .offer-ray {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 225, 120, 1),
+    rgba(212, 175, 55, 0)
+  );
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes offerSunGlow {
+  0%,
+  100% {
+    transform: scale(1);
+
+    box-shadow:
+      0 0 10px rgba(255, 166, 45, 0.3),
+      0 0 25px rgba(255, 166, 45, 0.18),
+      inset 0 0 18px rgba(255, 195, 80, 0.1);
+  }
+
+  50% {
+    transform: scale(1.025);
+
+    box-shadow:
+      0 0 15px rgba(255, 166, 45, 0.55),
+      0 0 35px rgba(255, 166, 45, 0.35),
+      0 0 60px rgba(255, 166, 45, 0.15),
+      inset 0 0 25px rgba(255, 195, 80, 0.18);
+  }
+}
+
+
+@keyframes offerBadgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+
+@keyframes offerDotBlink {
+  0%,
+  100% {
+    opacity: 0.55;
+
+    box-shadow:
+      0 0 4px #ffe27a;
+  }
+
+  50% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 8px #ffe27a,
+      0 0 18px #ffe27a,
+      0 0 28px rgba(255, 226, 122, 0.7);
+  }
+}
+
+
+@keyframes offerDotRing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+
+@keyframes sunRayBlink {
+  0%,
+  100% {
+    opacity: 0;
+    height: 22px;
+  }
+
+  40% {
+    opacity: 0.75;
+    height: 38px;
+  }
+
+  60% {
+    opacity: 0.95;
+    height: 43px;
+  }
+}
+
+
+@keyframes priceGlow {
+  0%,
+  100% {
+    transform: scale(1);
+
+    filter:
+      drop-shadow(0 0 0 rgba(255, 190, 50, 0));
+  }
+
+  50% {
+    transform: scale(1.035);
+
+    filter:
+      drop-shadow(
+        0 0 10px rgba(255, 190, 50, 0.3)
+      );
+  }
+}
+
+
+@keyframes offerShine {
+  0% {
+    left: -80%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  45% {
+    left: 140%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 140%;
+    opacity: 0;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .offer-sun-content {
+    min-height: 110px;
+  }
+
+  .offer-price {
+    font-size: 2rem;
+  }
+
+  .offer-ray {
+    transform-origin: 50% 70px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   ACCESSIBILITY
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-sun-content,
+  .offer-title,
+  .offer-dot,
+  .offer-dot::after,
+  .offer-price,
+  .offer-ray,
+  .offer-shine {
+    animation: none !important;
+  }
+}
+
+@keyframes gallery-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(80px) scale(1.03);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animate-gallery-slide {
+  animation: gallery-slide 0.8s ease-out;
+}
