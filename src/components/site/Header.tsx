@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 const nav = [
   { label: "Venus Park", to: "/venus-park", pill: true },
-  { label: "Home", to: "/" },
+  // { label: "Home", to: "/" },
   { label: "Halls", to: "/#halls" },
   { label: "Gallery", to: "/#gallery" },
   { label: "Packages", to: "/#packages" },
