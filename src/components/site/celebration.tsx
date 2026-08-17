@@ -79,6 +79,89 @@ const eventTags = [
   "Festivals",
 ];
 
+const pavilionEvents = [
+  {
+    title: "Baby Shower",
+    description: "Warm decor, family seating and a relaxed setup for blessing ceremonies.",
+    image: images.celebrations,
+  },
+  {
+    title: "Naming Ceremony",
+    description: "A calm, elegant pavilion arrangement for traditional family rituals.",
+    image: images.interior,
+  },
+  {
+    title: "Birthday Celebrations",
+    description: "Flexible party layouts for birthdays, milestones and themed celebrations.",
+    image: images.celebrations,
+  },
+  {
+    title: "Haldi Celebrations",
+    description: "Bright, festive settings with space for rituals, music and family moments.",
+    image: images.weddings,
+  },
+  {
+    title: "Sangeet Celebrations",
+    description: "Stage-ready spaces for performances, dancing and pre-wedding energy.",
+    image: images.weddings,
+  },
+  {
+    title: "Pre-Wedding Functions",
+    description: "Versatile indoor setups for mehendi, haldi, sangeet and family gatherings.",
+    image: images.weddings,
+  },
+  {
+    title: "Engagement",
+    description: "Intimate seating, stage focus and photo-friendly decor for ring ceremonies.",
+    image: images.celebrations,
+  },
+  {
+    title: "Pooja & Rituals",
+    description: "Respectful arrangements for traditional ceremonies and spiritual occasions.",
+    image: images.interior,
+  },
+  {
+    title: "Half Saree Function",
+    description: "Graceful celebration layouts for family customs and cultural milestones.",
+    image: images.celebrations,
+  },
+  {
+    title: "Baby Arrival",
+    description: "Comfortable, joyful spaces for welcoming the newest family member.",
+    image: images.celebrations,
+  },
+  {
+    title: "Corporate Meets",
+    description: "Professional seating, AV-friendly layouts and smooth guest movement.",
+    image: images.corporate,
+  },
+  {
+    title: "Product Launch",
+    description: "Presentation-ready venues for brand reveals, showcases and launches.",
+    image: images.corporate,
+  },
+  {
+    title: "Potluck Parties",
+    description: "Casual dining-friendly setups for communities, families and teams.",
+    image: images.dining,
+  },
+  {
+    title: "Photo Shoots",
+    description: "Styled backdrops and spacious interiors for portrait and event shoots.",
+    image: images.interior,
+  },
+  {
+    title: "Intimate Gathering",
+    description: "Smaller pavilion formats for close-knit celebrations and private events.",
+    image: images.celebrations,
+  },
+  {
+    title: "Picnic Experience",
+    description: "Easygoing celebration spaces for daytime get-togethers and group outings.",
+    image: images.dining,
+  },
+];
+
 /* =========================================================
    HERO STATS
 ========================================================= */
@@ -683,6 +766,36 @@ export function Pavilions() {
           title="Halls Crafted for Celebration"
           description="Twelve premium halls. Twelve different moods. From intimate gatherings to grand royal weddings, every space tells a story."
         />
+
+        <div className="mx-auto mt-12 max-w-6xl">
+          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {pavilionEvents.map((event) => (
+              <li
+                key={event.title}
+                className="group overflow-hidden border border-gold/25 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.12)]"
+              >
+                <div className="media-zoom relative aspect-[4/3] overflow-hidden bg-ink/10">
+                  <img
+                    src={event.image}
+                    alt={`${event.title} at Venus Park`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/5 to-transparent" />
+                </div>
+
+                <div className="p-5">
+                  <h3 className="font-display text-2xl leading-tight text-rose-700">
+                    {event.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {event.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* =================================================
             HALL CARDS
