@@ -8,12 +8,15 @@ import {
   ArrowRight,
   Crown,
   Check,
+  Facebook,
   Gem,
   HeartHandshake,
+  Instagram,
   MapPin,
   Sparkles,
   Star,
   X,
+  Youtube,
 } from "lucide-react";
 
 import { useEffect, useState } from "react";
@@ -79,86 +82,229 @@ const eventTags = [
   "Festivals",
 ];
 
+const landingCarouselImages = [
+  {
+    src: "/images/IMG_7889%20(1).PNG",
+    alt: "Venus Park event poster 1",
+  },
+  {
+    src: "/images/IMG_7891%20(1).PNG",
+    alt: "Venus Park event poster 2",
+  },
+  {
+    src: "/images/IMG_7898%20(1).PNG",
+    alt: "Venus Park event poster 3",
+  },
+  {
+    src: "/images/IMG_7899%20(1).PNG",
+    alt: "Venus Park event poster 4",
+  },
+  {
+    src: "/images/IMG_7910%20(1).PNG",
+    alt: "Venus Park event poster 5",
+  },
+  {
+    src: "/images/IMG_7911%20(1).PNG",
+    alt: "Venus Park event poster 6",
+  },
+  {
+    src: "/images/IMG_7912%20(1).PNG",
+    alt: "Venus Park event poster 7",
+  },
+];
+
 const pavilionEvents = [
   {
     title: "Baby Shower",
+    pax: "300 Pax",
     description: "Warm decor, family seating and a relaxed setup for blessing ceremonies.",
     image: images.celebrations,
+    features: ["Family Seating", "Warm Decor", "Dining", "Photography"],
+    gallery: [
+      images.celebrations,
+      galleryItems[0]?.src ?? images.celebrations,
+      galleryItems[2]?.src ?? images.weddings,
+    ],
   },
   {
     title: "Naming Ceremony",
+    pax: "250 Pax",
     description: "A calm, elegant pavilion arrangement for traditional family rituals.",
     image: images.interior,
+    features: ["Ritual Setup", "Stage", "Dining", "Guest Seating"],
+    gallery: [
+      images.interior,
+      galleryItems[1]?.src ?? images.interior,
+      galleryItems[6]?.src ?? images.interior,
+    ],
   },
   {
     title: "Birthday Celebrations",
+    pax: "300 Pax",
     description: "Flexible party layouts for birthdays, milestones and themed celebrations.",
     image: images.celebrations,
+    features: ["Party Setup", "Music", "Decoration", "Dining"],
+    gallery: [
+      images.celebrations,
+      galleryItems[7]?.src ?? images.celebrations,
+      galleryItems[17]?.src ?? images.celebrations,
+    ],
   },
   {
     title: "Haldi Celebrations",
+    pax: "400 Pax",
     description: "Bright, festive settings with space for rituals, music and family moments.",
     image: images.weddings,
+    features: ["Floral Decor", "Ritual Space", "Music", "Catering"],
+    gallery: [
+      images.weddings,
+      galleryItems[8]?.src ?? images.weddings,
+      galleryItems[14]?.src ?? images.weddings,
+    ],
   },
   {
     title: "Sangeet Celebrations",
+    pax: "600 Pax",
     description: "Stage-ready spaces for performances, dancing and pre-wedding energy.",
     image: images.weddings,
+    features: ["Dance Floor", "Stage", "Lighting", "Sound"],
+    gallery: [
+      images.weddings,
+      galleryItems[12]?.src ?? images.weddings,
+      galleryItems[19]?.src ?? images.weddings,
+    ],
   },
   {
     title: "Pre-Wedding Functions",
+    pax: "500 Pax",
     description: "Versatile indoor setups for mehendi, haldi, sangeet and family gatherings.",
     image: images.weddings,
+    features: ["Mehendi", "Haldi", "Sangeet", "Dining"],
+    gallery: [
+      images.weddings,
+      galleryItems[20]?.src ?? images.weddings,
+      galleryItems[23]?.src ?? images.weddings,
+    ],
   },
   {
     title: "Engagement",
+    pax: "500 Pax",
     description: "Intimate seating, stage focus and photo-friendly decor for ring ceremonies.",
     image: images.celebrations,
+    features: ["Stage", "Lounge", "Photography", "Catering"],
+    gallery: [
+      images.celebrations,
+      galleryItems[24]?.src ?? images.celebrations,
+      galleryItems[28]?.src ?? images.celebrations,
+    ],
   },
   {
     title: "Pooja & Rituals",
+    pax: "200 Pax",
     description: "Respectful arrangements for traditional ceremonies and spiritual occasions.",
     image: images.interior,
+    features: ["Ritual Setup", "Seating", "Dining", "Support"],
+    gallery: [
+      images.interior,
+      galleryItems[13]?.src ?? images.interior,
+      galleryItems[21]?.src ?? images.interior,
+    ],
   },
   {
     title: "Half Saree Function",
+    pax: "350 Pax",
     description: "Graceful celebration layouts for family customs and cultural milestones.",
     image: images.celebrations,
+    features: ["Stage", "Decor", "Dining", "Photography"],
+    gallery: [
+      images.celebrations,
+      galleryItems[29]?.src ?? images.celebrations,
+      galleryItems[35]?.src ?? images.celebrations,
+    ],
   },
   {
     title: "Baby Arrival",
+    pax: "200 Pax",
     description: "Comfortable, joyful spaces for welcoming the newest family member.",
     image: images.celebrations,
+    features: ["Family Lounge", "Decor", "Dining", "Photos"],
+    gallery: [
+      images.celebrations,
+      galleryItems[36]?.src ?? images.celebrations,
+      galleryItems[38]?.src ?? images.celebrations,
+    ],
   },
   {
     title: "Corporate Meets",
+    pax: "700 Pax",
     description: "Professional seating, AV-friendly layouts and smooth guest movement.",
     image: images.corporate,
+    features: ["AV Setup", "Stage", "Seating", "Catering"],
+    gallery: [
+      images.corporate,
+      galleryItems[4]?.src ?? images.corporate,
+      galleryItems[18]?.src ?? images.corporate,
+    ],
   },
   {
     title: "Product Launch",
+    pax: "600 Pax",
     description: "Presentation-ready venues for brand reveals, showcases and launches.",
     image: images.corporate,
+    features: ["Branding", "AV Setup", "Stage", "Lighting"],
+    gallery: [
+      images.corporate,
+      galleryItems[25]?.src ?? images.corporate,
+      galleryItems[32]?.src ?? images.corporate,
+    ],
   },
   {
     title: "Potluck Parties",
+    pax: "250 Pax",
     description: "Casual dining-friendly setups for communities, families and teams.",
     image: images.dining,
+    features: ["Dining", "Buffet", "Seating", "Service"],
+    gallery: [
+      images.dining,
+      galleryItems[3]?.src ?? images.dining,
+      galleryItems[10]?.src ?? images.dining,
+    ],
   },
   {
     title: "Photo Shoots",
+    pax: "100 Pax",
     description: "Styled backdrops and spacious interiors for portrait and event shoots.",
     image: images.interior,
+    features: ["Backdrops", "Lighting", "Interiors", "Access"],
+    gallery: [
+      images.interior,
+      galleryItems[34]?.src ?? images.interior,
+      galleryItems[41]?.src ?? images.interior,
+    ],
   },
   {
     title: "Intimate Gathering",
+    pax: "150 Pax",
     description: "Smaller pavilion formats for close-knit celebrations and private events.",
     image: images.celebrations,
+    features: ["Private Setup", "Dining", "Decor", "Service"],
+    gallery: [
+      images.celebrations,
+      galleryItems[37]?.src ?? images.celebrations,
+      galleryItems[42]?.src ?? images.celebrations,
+    ],
   },
   {
     title: "Picnic Experience",
+    pax: "200 Pax",
     description: "Easygoing celebration spaces for daytime get-togethers and group outings.",
     image: images.dining,
+    features: ["Day Events", "Dining", "Games", "Seating"],
+    gallery: [
+      images.dining,
+      galleryItems[39]?.src ?? images.dining,
+      galleryItems[22]?.src ?? images.dining,
+    ],
   },
 ];
 
@@ -353,63 +499,64 @@ const showcase = [
 const packages = [
   {
     name: "Silver",
-    motif: "Sandalwood",
-    note: "Half-Day | Up to 250 Guests",
+    motif: "",
+    note: "8 Hours | 50 to 250 Guests",
     href: "/booking?package=Silver",
 
     features: [
-      "4-hour hall booking",
-      "Standard decor and florals",
-      "Welcome drinks counter",
-      "Standard sound and lighting",
-      "Bridal lounge access",
+      "Non-AC package",
+      "8-hour hall booking",
+      "Flexible capacity for 50 to 250 guests",
+      "Seating capacity for 75 guests",
+      "Dining setup for 50 people",
     ],
   },
 
   {
     name: "Gold",
     motif: "Marigold",
-    note: "Full-Day | Up to 500 Guests",
+    note: "8 Hours | 300 to 1500 Guests",
     href: "/booking?package=Gold",
 
     features: [
+      "All Court Non-AC package",
       "8-hour hall booking",
-      "Premium themed decor",
-      "South Indian thali catering",
-      "LED stage and DJ system",
-      "Dedicated coordinator",
+      "Flexible capacity for 300 to 1500 guests",
+      "Seating capacity for 400 guests",
+      "Dining setup for 200 people",
     ],
   },
 
   {
     name: "Platinum",
     motif: "Kanchipuram",
-    note: "Two-Day | Up to 800 Guests",
+    note: "8 Hours | 500 to 2000 Guests",
     href: "/booking?package=Platinum",
 
     features: [
-      "Hall and pre-function area",
-      "Designer mandap",
-      "Multi-cuisine live counters",
-      "Photography and videography",
-      "Bridal and groom suites",
+      "Non-AC package",
+      "8-hour hall booking",
+      "Flexible capacity for 500 to 2000 guests",
+      "Seating capacity for 4000 guests",
+      "Dining setup for 200 people",
     ],
   },
 
   {
     name: "Diamond",
     motif: "Chola Royal",
-    note: "Full Property | 1500+ Guests",
+    note: "Full Day | Venus Hall",
     href: "/booking?package=Diamond",
     featured: true,
 
     features: [
-      "Entire venue exclusive",
-      "Bespoke floral architecture",
-      "Celebrity chef catering",
-      "Drone cinematography",
-      "Choreographed entry and fireworks",
-      "Vintage car for the couple",
+      "Non-AC package",
+      "Full-day Venus Hall booking",
+      "Most rated and highly recommended hall",
+      "Premium decor and stage setup",
+      "Spacious guest seating arrangement",
+      "Dedicated dining area planning",
+      "Ideal for grand weddings and receptions",
     ],
   },
 ];
@@ -663,8 +810,13 @@ export function Pavilions() {
 
   const [activeImage, setActiveImage] = useState(0);
 
-  const selectedHall = halls.find(
-    (hall) => hall.name === activeHall
+  const celebrationEvents = pavilionEvents.map((event) => ({
+    ...event,
+    name: event.title,
+  }));
+
+  const selectedHall = [...celebrationEvents, ...halls].find(
+    (event) => event.name === activeHall
   );
 
   const galleryImages = selectedHall?.gallery ?? [];
@@ -767,30 +919,140 @@ export function Pavilions() {
           description="Twelve premium halls. Twelve different moods. From intimate gatherings to grand royal weddings, every space tells a story."
         />
 
-        <div className="mx-auto mt-12 max-w-6xl">
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-12 max-w-7xl">
+          <ul className="grid gap-6 md:grid-cols-2">
             {pavilionEvents.map((event) => (
               <li
                 key={event.title}
-                className="group overflow-hidden border border-gold/25 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.12)]"
+                onClick={() =>
+                  openGallery(event.title)
+                }
+                className="
+                  group
+                  grid
+                  h-auto
+                  cursor-pointer
+                  overflow-hidden
+                  border
+                  border-border
+                  bg-white
+                  shadow-sm
+                  transition-all
+                  duration-500
+                  md:h-[300px]
+                  md:grid-cols-[0.92fr_1fr]
+                  hover:-translate-y-1
+                  hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)]
+                "
               >
-                <div className="media-zoom relative aspect-[4/3] overflow-hidden bg-ink/10">
+                <div className="media-zoom relative h-[220px] overflow-hidden bg-ink/10 md:h-full">
                   <img
                     src={event.image}
                     alt={`${event.title} at Venus Park`}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/5 to-transparent" />
+
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      flex
+                      items-center
+                      justify-center
+                      bg-black/20
+                      transition-all
+                      duration-500
+                      group-hover:bg-black/35
+                    "
+                  >
+                    <span
+                      className="
+                        rounded-full
+                        border
+                        border-white/30
+                        bg-black/50
+                        px-6
+                        py-2.5
+                        text-xs
+                        font-semibold
+                        uppercase
+                        tracking-[0.22em]
+                        text-white
+                        backdrop-blur-md
+                        transition-all
+                        duration-500
+                        group-hover:bg-black/70
+                      "
+                    >
+                      View Gallery
+                    </span>
+                  </div>
                 </div>
 
-                <div className="p-5">
-                  <h3 className="font-display text-2xl leading-tight text-rose-700">
-                    {event.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <div className="flex min-h-[300px] flex-col items-center justify-center px-6 py-7 text-center md:h-full md:min-h-0">
+                  <div className="flex w-full items-start justify-center gap-8">
+                    <h3 className="font-display text-3xl leading-none text-foreground">
+                      {event.title}
+                    </h3>
+
+                    <span className="shrink-0 pt-1 text-base font-bold leading-none text-gold">
+                      {event.pax}
+                    </span>
+                  </div>
+
+                  <p className="mt-5 max-w-[30ch] text-sm leading-6 text-muted-foreground">
                     {event.description}
                   </p>
+
+                  <div className="mt-5 flex max-w-[300px] flex-wrap justify-center gap-2">
+                    {event.features.map(
+                      (feature) => (
+                        <span
+                          key={feature}
+                          className="
+                            border
+                            border-border
+                            bg-sand
+                            px-3
+                            py-1.5
+                            text-[0.68rem]
+                            font-semibold
+                            uppercase
+                            tracking-[0.2em]
+                            text-muted-foreground
+                          "
+                        >
+                          {feature}
+                        </span>
+                      )
+                    )}
+                  </div>
+
+                  <div
+                    className="
+                      mt-5
+                      flex
+                      items-center
+                      gap-2
+                      text-xs
+                      font-semibold
+                      uppercase
+                      tracking-[0.2em]
+                      text-gold
+                    "
+                  >
+                    Explore {event.title}
+
+                    <ArrowRight
+                      size={15}
+                      className="
+                        transition-transform
+                        duration-300
+                        group-hover:translate-x-1
+                      "
+                    />
+                  </div>
                 </div>
               </li>
             ))}
@@ -801,7 +1063,7 @@ export function Pavilions() {
             HALL CARDS
         ================================================= */}
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mx-auto mt-14 grid max-w-7xl gap-6 md:grid-cols-2">
           {halls.map((hall, index) => (
             <Reveal
               key={hall.name}
@@ -812,17 +1074,20 @@ export function Pavilions() {
                   openGallery(hall.name)
                 }
                 className="
-                  card-elegant
                   group
                   grid
-                  h-full
+                  h-auto
                   cursor-pointer
                   overflow-hidden
+                  border
+                  border-border
+                  bg-white
                   transition-all
                   duration-500
+                  md:h-[300px]
                   hover:-translate-y-1
                   hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)]
-                  lg:grid-cols-[0.9fr_1fr]
+                  md:grid-cols-[0.92fr_1fr]
                 "
               >
                 {/* IMAGE */}
@@ -831,9 +1096,9 @@ export function Pavilions() {
                   className="
                     media-zoom
                     relative
-                    aspect-[4/3]
+                    h-[220px]
                     overflow-hidden
-                    lg:aspect-auto
+                    md:h-full
                   "
                 >
                   <img
@@ -859,32 +1124,29 @@ export function Pavilions() {
                       flex
                       items-center
                       justify-center
-                      bg-black/0
+                      bg-black/20
                       transition-all
                       duration-500
-                      group-hover:bg-black/30
+                      group-hover:bg-black/35
                     "
                   >
                     <span
                       className="
-                        translate-y-4
                         rounded-full
                         border
                         border-white/30
                         bg-black/50
-                        px-5
-                        py-2
+                        px-6
+                        py-2.5
                         text-xs
                         font-semibold
                         uppercase
-                        tracking-[0.18em]
+                        tracking-[0.22em]
                         text-white
-                        opacity-0
                         backdrop-blur-md
                         transition-all
                         duration-500
-                        group-hover:translate-y-0
-                        group-hover:opacity-100
+                        group-hover:bg-black/70
                       "
                     >
                       View Gallery
@@ -894,24 +1156,24 @@ export function Pavilions() {
 
                 {/* CONTENT */}
 
-                <div className="flex flex-col p-7">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <h3 className="font-display text-3xl">
+                <div className="flex min-h-[300px] flex-col items-center justify-center px-6 py-7 text-center md:h-full md:min-h-0">
+                  <div className="flex w-full items-start justify-center gap-8">
+                    <h3 className="font-display text-3xl leading-none text-foreground">
                       {hall.name}
                     </h3>
 
-                    <span className="text-sm font-semibold text-gold">
+                    <span className="shrink-0 pt-1 text-base font-bold leading-none text-gold">
                       {hall.pax}
                     </span>
                   </div>
 
-                  <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-5 max-w-[30ch] text-sm leading-6 text-muted-foreground">
                     {hall.description}
                   </p>
 
                   {/* FEATURES */}
 
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <div className="mt-5 flex max-w-[300px] flex-wrap justify-center gap-2">
                     {hall.features.map(
                       (feature) => (
                         <span
@@ -921,10 +1183,11 @@ export function Pavilions() {
                             border-border
                             bg-sand
                             px-3
-                            py-1
+                            py-1.5
                             text-[0.68rem]
+                            font-semibold
                             uppercase
-                            tracking-[0.14em]
+                            tracking-[0.2em]
                             text-muted-foreground
                           "
                         >
@@ -938,14 +1201,14 @@ export function Pavilions() {
 
                   <div
                     className="
-                      mt-6
+                      mt-5
                       flex
                       items-center
                       gap-2
                       text-xs
                       font-semibold
                       uppercase
-                      tracking-[0.15em]
+                      tracking-[0.2em]
                       text-gold
                     "
                   >
@@ -1276,89 +1539,30 @@ export function Location() {
         <div
           className="
             flex
-            min-h-[460px]
+            h-[300px]
             flex-col
             border
             border-border
             bg-card
-            p-7
+            p-5
             shadow-[var(--shadow-soft)]
-            sm:p-9
+            sm:p-6
           "
         >
           <p className="eyebrow">
             Find Us
           </p>
 
-          <h3 className="mt-[6px] font-display text-3xl text-foreground">
-            Scan for Directions
-          </h3>
-
-          <p className="mt-[10px] text-sm leading-relaxed text-muted-foreground">
-            Scan the QR code to open Venus Park on
-            Google Maps, or click the address below to
-            view our location.
-          </p>
-
-          <div className="mt-7 flex flex-1 flex-col items-center">
+          <div className="mt-5 flex flex-1 flex-col items-center justify-center gap-4">
             {/* QR CODE */}
 
-            <div className="rounded-xl border border-border bg-white p-3 shadow-sm">
+            <div className="w-full max-w-[170px] rounded-xl border border-border bg-white p-2 shadow-sm">
               <img
                 src="/gallery/Venus_Park_Review_QR (1).png"
                 alt="Venus Park QR Code"
-                className="h-[150px] w-[150px] object-contain"
+                className="mx-auto aspect-square w-full object-contain"
               />
             </div>
-
-            {/* ADDRESS */}
-
-            <a
-              href={mapsDirectionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                group
-                mt-6
-                flex
-                w-full
-                items-start
-                gap-3
-              "
-            >
-              <MapPin
-                size={19}
-                className="
-                  mt-1
-                  shrink-0
-                  text-gold
-                  transition-transform
-                  duration-300
-                  group-hover:scale-110
-                "
-              />
-
-              <div>
-                {venue.addressLines.map(
-                  (line) => (
-                    <span
-                      key={line}
-                      className="
-                        block
-                        text-sm
-                        leading-relaxed
-                        text-muted-foreground
-                        transition-colors
-                        duration-300
-                        group-hover:text-gold
-                      "
-                    >
-                      {line}
-                    </span>
-                  )
-                )}
-              </div>
-            </a>
 
             {/* DIRECTIONS */}
 
@@ -1366,7 +1570,7 @@ export function Location() {
               asChild
               variant="outline"
               size="lg"
-              className="mt-5 w-full"
+              className="w-full max-w-[170px]"
             >
               <a
                 href={mapsDirectionsUrl}
@@ -1385,37 +1589,28 @@ export function Location() {
         <div
           className="
             flex
-            min-h-[460px]
+            h-[300px]
             flex-col
             border
             border-border
             bg-card
-            p-7
+            p-5
             shadow-[var(--shadow-soft)]
-            sm:p-9
+            sm:p-6
           "
         >
           <p className="eyebrow">
-            Stay Connected
-          </p>
-
-          <h3 className="mt-3 font-display text-3xl text-foreground">
             Social Media
-          </h3>
-
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-            Follow Venus Park for weddings, celebrations,
-            events, offers and beautiful moments from our
-            venue.
           </p>
 
-          <div className="mt-8 flex flex-1 flex-col justify-center gap-4">
+          <div className="mt-5 flex flex-1 flex-col justify-center gap-3">
             {/* INSTAGRAM */}
 
             <a
-              href="https://www.instagram.com/"
+              href={venue.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Open Venus Park on Instagram"
               className="
                 group
                 flex
@@ -1425,7 +1620,7 @@ export function Location() {
                 border-border
                 bg-background
                 px-5
-                py-4
+                py-2
                 transition-all
                 duration-300
                 hover:-translate-y-1
@@ -1437,8 +1632,8 @@ export function Location() {
               <span
                 className="
                   flex
-                  h-11
-                  w-11
+                  h-10
+                  w-10
                   shrink-0
                   items-center
                   justify-center
@@ -1450,7 +1645,7 @@ export function Location() {
                   group-hover:border-white/50
                 "
               >
-                IG
+                <Instagram size={23} aria-hidden="true" />
               </span>
 
               <span className="text-sm font-medium">
@@ -1466,9 +1661,10 @@ export function Location() {
             {/* FACEBOOK */}
 
             <a
-              href="https://www.facebook.com/"
+              href={venue.social.facebook}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Open Venus Park on Facebook"
               className="
                 group
                 flex
@@ -1478,7 +1674,7 @@ export function Location() {
                 border-border
                 bg-background
                 px-5
-                py-4
+                py-2
                 transition-all
                 duration-300
                 hover:-translate-y-1
@@ -1490,8 +1686,8 @@ export function Location() {
               <span
                 className="
                   flex
-                  h-11
-                  w-11
+                  h-10
+                  w-10
                   shrink-0
                   items-center
                   justify-center
@@ -1503,7 +1699,7 @@ export function Location() {
                   group-hover:border-white/50
                 "
               >
-                f
+                <Facebook size={23} aria-hidden="true" />
               </span>
 
               <span className="text-sm font-medium">
@@ -1519,9 +1715,10 @@ export function Location() {
             {/* YOUTUBE */}
 
             <a
-              href="https://www.youtube.com/"
+              href={venue.social.youtube}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Open Venus Park on YouTube"
               className="
                 group
                 flex
@@ -1531,7 +1728,7 @@ export function Location() {
                 border-border
                 bg-background
                 px-5
-                py-4
+                py-2
                 transition-all
                 duration-300
                 hover:-translate-y-1
@@ -1543,8 +1740,8 @@ export function Location() {
               <span
                 className="
                   flex
-                  h-11
-                  w-11
+                  h-10
+                  w-10
                   shrink-0
                   items-center
                   justify-center
@@ -1556,7 +1753,7 @@ export function Location() {
                   group-hover:border-white/50
                 "
               >
-                ▶
+                <Youtube size={25} aria-hidden="true" />
               </span>
 
               <span className="text-sm font-medium">
@@ -1575,7 +1772,7 @@ export function Location() {
 
         <div
           className="
-            min-h-[460px]
+            h-[300px]
             overflow-hidden
             border
             border-border
@@ -1590,7 +1787,6 @@ export function Location() {
             referrerPolicy="no-referrer-when-downgrade"
             className="
               h-full
-              min-h-[460px]
               w-full
               border-0
             "
@@ -1627,6 +1823,146 @@ export function Location() {
             />
           </Link>
         </Button>
+      </div>
+    </Section>
+  );
+}
+
+/* =========================================================
+   LANDING IMAGE CAROUSEL
+========================================================= */
+
+export function LandingImageCarousel() {
+  const [activeImage, setActiveImage] = useState(0);
+  const visibleImageIndexes = [0, 1, 2].map(
+    (offset) =>
+      (activeImage + offset) %
+      landingCarouselImages.length
+  );
+
+  const previousImage = () => {
+    setActiveImage((current) =>
+      current === 0
+        ? landingCarouselImages.length - 1
+        : current - 1
+    );
+  };
+
+  const nextImage = () => {
+    setActiveImage(
+      (current) =>
+        (current + 1) % landingCarouselImages.length
+    );
+  };
+
+  useEffect(() => {
+    const interval = setInterval(nextImage, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <Section id="moments">
+      <Intro
+        eyebrow="Venue Moments"
+        title="Celebrations in Focus"
+        description="A curated look at Venus Park event setups, celebrations and venue experiences."
+      />
+
+      <div className="relative mt-10">
+        <div className="grid gap-6 md:grid-cols-3">
+          {visibleImageIndexes.map((imageIndex) => {
+            const image = landingCarouselImages[imageIndex];
+
+            return (
+              <article
+                key={image.src}
+                className="
+                  overflow-hidden
+                  border
+                  border-border
+                  bg-card
+                  shadow-[var(--shadow-soft)]
+                "
+              >
+                <div className="aspect-[4/5] bg-black">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="mt-6 flex items-center justify-center gap-4">
+          <button
+            type="button"
+            onClick={previousImage}
+            aria-label="Show previous carousel image"
+            className="
+              flex
+              h-11
+              w-11
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-border
+              bg-card
+              text-foreground
+              shadow-sm
+              transition-colors
+              hover:border-gold
+              hover:text-gold
+            "
+          >
+            <ArrowLeft size={20} />
+          </button>
+
+          <div className="flex justify-center gap-2">
+            {landingCarouselImages.map((image, index) => (
+              <button
+                key={image.src}
+                type="button"
+                onClick={() => setActiveImage(index)}
+                aria-label={`Show carousel image ${index + 1}`}
+                className={cn(
+                  "h-2 rounded-full bg-foreground/25 transition-all hover:bg-gold",
+                  index === activeImage
+                    ? "w-8 bg-gold"
+                    : "w-2"
+                )}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={nextImage}
+            aria-label="Show next carousel image"
+            className="
+              flex
+              h-11
+              w-11
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-border
+              bg-card
+              text-foreground
+              shadow-sm
+              transition-colors
+              hover:border-gold
+              hover:text-gold
+            "
+          >
+            <ArrowRight size={20} />
+          </button>
+        </div>
       </div>
     </Section>
   );
@@ -1688,45 +2024,95 @@ export function CuratedPackages() {
         description="From sweet beginnings to royal grandeur, choose the celebration that matches your vision. All packages are fully customisable."
       />
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-4">
+      <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-4">
         {packages.map((tier, index) => (
           <Reveal
             key={tier.name}
             index={index % 4}
+            className="h-full"
           >
-            <article
-              className={cn(
-                "card-elegant relative flex h-full flex-col overflow-hidden p-7",
-                tier.featured &&
-                  "border-gold bg-ink text-ivory"
-              )}
+            <Link
+              href={tier.href}
+              aria-label={`View ${tier.name} package`}
+              className="group block h-full focus-visible:outline-none"
             >
+              <article
+                className={cn(
+                  "card-elegant relative flex h-full min-h-[30rem] flex-col overflow-hidden p-7 transition-transform duration-300 group-hover:-translate-y-1 group-focus-visible:-translate-y-1",
+                  tier.featured &&
+                    "badge-card badge-float border-yellow-300/80 bg-gradient-to-br from-gold-soft via-gold to-amber-700 text-ink shadow-gold"
+                )}
+              >
               {tier.featured && (
-                <span className="absolute right-4 top-4 bg-gold px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-ink">
-                  Most Celebrated
-                </span>
+                <>
+                  <span className="badge-shine" aria-hidden="true" />
+                  <span className="badge-sweep" aria-hidden="true" />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/50 via-white/10 to-transparent"
+                  />
+                </>
               )}
 
-              <p className="eyebrow">
-                {tier.motif}
-              </p>
+              <div
+                className={cn(
+                  "absolute inset-x-0 bottom-0 z-30 translate-y-full border-t border-gold/35 bg-white/95 p-4 opacity-0 shadow-xl backdrop-blur transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100",
+                  tier.featured
+                    ? "text-ink"
+                    : "text-foreground"
+                )}
+              >
+                <div className="flex flex-col items-start gap-3">
+                  <span className="relative inline-flex min-h-8 w-32 items-center drop-shadow-[0_8px_12px_rgba(29,28,38,0.2)]">
+                    <span className="relative z-10 grid h-8 w-8 shrink-0 place-items-center border-y border-l border-yellow-700/50 bg-gradient-to-br from-yellow-200 via-gold to-amber-700 text-[#071128] [clip-path:polygon(22%_0,100%_0,84%_50%,100%_100%,22%_100%,0_50%)]">
+                      <Star className="h-3 w-3 fill-current" aria-hidden="true" />
+                    </span>
 
-              <h3 className="mt-3 font-display text-3xl">
+                    <span className="relative -ml-1 flex h-8 min-w-0 flex-1 items-center border-y border-r border-yellow-700/50 bg-[#101629] px-2 pr-4 text-left [clip-path:polygon(0_0,88%_0,100%_50%,88%_100%,0_100%,8%_50%)]">
+                      <span className="absolute left-1/2 top-0 h-px w-6 -translate-x-1/2 bg-white/80 shadow-[0_0_10px_2px_rgba(255,255,255,0.7)]" />
+                      <span className="leading-none">
+                        <span className="block text-[0.48rem] font-semibold uppercase tracking-[0.08em] text-gold">
+                          Opening
+                        </span>
+                        <span className="block font-display text-[0.8rem] font-bold uppercase leading-none tracking-[0.04em] text-white">
+                          Offer
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+
+                  <p className="w-full text-center text-3xl font-black leading-none tracking-normal text-ink">
+                    {inr(
+                      packagePrices.get(
+                        tier.name
+                      ) ?? 0
+                    )}
+                  </p>
+                </div>
+              </div>
+
+              {/* {tier.motif && (
+                <p className={cn("eyebrow relative z-10", tier.featured && "mt-5 text-center")}>
+                  {tier.motif}
+                </p>
+              )} */}
+
+              <h3 className={cn("relative z-10 font-display text-3xl", tier.motif && "mt-3", tier.featured && "text-center")}>
                 {tier.name}
               </h3>
 
               <p
                 className={cn(
-                  "mt-3 text-xs uppercase tracking-[0.14em]",
+                  "relative z-10 mt-3 text-xs uppercase tracking-[0.14em]",
                   tier.featured
-                    ? "text-ivory/65"
+                    ? "text-ink/65"
                     : "text-muted-foreground"
                 )}
               >
                 {tier.note}
               </p>
 
-              <ul className="mt-7 flex-1 space-y-3">
+              <ul className="relative z-10 mt-7 flex-1 space-y-3">
                 {tier.features.map(
                   (feature) => (
                     <li
@@ -1734,7 +2120,7 @@ export function CuratedPackages() {
                       className={cn(
                         "flex gap-3 text-sm leading-relaxed",
                         tier.featured
-                          ? "text-ivory"
+                          ? "text-ink"
                           : ""
                       )}
                     >
@@ -1745,83 +2131,8 @@ export function CuratedPackages() {
                 )}
               </ul>
 
-              <div
-                className={cn(
-                  "mt-8 border-t pt-6",
-                  tier.featured
-                    ? "border-ivory/15"
-                    : "border-border"
-                )}
-              >
-                <div className="relative inline-flex flex-col items-center">
-                  <div className="relative mb-2">
-                    <span
-                      className="
-                        relative
-                        z-10
-                        inline-flex
-                        items-center
-                        gap-2
-                        rounded-full
-                        border
-                        border-yellow-300/50
-                        bg-gradient-to-r
-                        from-red-600
-                        via-red-500
-                        to-orange-500
-                        px-4
-                        py-1.5
-                        text-xs
-                        font-black
-                        uppercase
-                        tracking-widest
-                        text-white
-                        shadow-[0_0_20px_rgba(239,68,68,0.45)]
-                        animate-pulse
-                      "
-                    >
-                      <span className="relative flex h-2 w-2">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-300 opacity-75" />
-
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-yellow-300" />
-                      </span>
-
-                      Special Offer
-                    </span>
-
-                    <p
-                      className={cn(
-                        "font-display text-4xl font-bold leading-none transition-transform duration-300 hover:scale-110",
-                        tier.featured
-                          ? "text-gold"
-                          : "text-foreground"
-                      )}
-                    >
-                      {inr(
-                        packagePrices.get(
-                          tier.name
-                        ) ?? 0
-                      )}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <Button
-                asChild
-                variant={
-                  tier.featured
-                    ? "gold"
-                    : "outline"
-                }
-                size="lg"
-                className="mt-8 w-full"
-              >
-                <Link href={tier.href}>
-                  Choose {tier.name}
-                </Link>
-              </Button>
-            </article>
+              </article>
+            </Link>
           </Reveal>
         ))}
       </div>

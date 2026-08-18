@@ -5,6 +5,7 @@ import {
   DivineHero,
   FamilyStories,
   GrandStage,
+  LandingImageCarousel,
   Pavilions,
   ReserveCta,
 
@@ -32,6 +33,7 @@ export default function HomePage() {
       <DivineHero video />
 
       <Location />
+      <LandingImageCarousel />
       {/* <CuratedPackages />
       <GrandStage />
 
@@ -40,7 +42,7 @@ export default function HomePage() {
 
       <Pavilions />
       <CuratedPackages />
-      <GrandStage />
+      {/* <GrandStage /> */}
 
       <FamilyStories />
       {/* <ReserveCta /> */}

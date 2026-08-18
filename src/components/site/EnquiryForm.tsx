@@ -75,16 +75,18 @@ export function EnquiryForm({
   });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [submitError, setSubmitError] = useState("");
 
   const set = (key: keyof Values, value: string) => {
     setValues((v) => ({ ...v, [key]: value }));
     setErrors((e) => ({ ...e, [key]: undefined }));
+    setSubmitError("");
   };
 
   const summary = () =>
     `Hello ${venue.name}, I would like to enquire.%0AName: ${values.name}%0AEvent: ${values.eventType}%0ADate: ${values.date}%0AGuests: ${values.guests}%0APackage: ${values.pkg}`;
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const parsed = schema.safeParse(values);
     if (!parsed.success) {
@@ -97,9 +99,39 @@ export function EnquiryForm({
       return;
     }
     setStatus("sending");
-    // No backend connected yet — the enquiry is captured locally and the team
-    // is reached via phone/WhatsApp. Wire this to a server function later.
-    window.setTimeout(() => setStatus("sent"), 700);
+    setSubmitError("");
+
+    try {
+      const apiUrl =
+        process.env.NEXT_PUBLIC_ENQUIRY_API_URL ?? "http://localhost:4000/api/enquiries";
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: parsed.data.name,
+          phone: parsed.data.phone,
+          eventType: parsed.data.eventType,
+          preferredDate: parsed.data.date,
+          guestCount: parsed.data.guests,
+          packagePreference: parsed.data.pkg,
+          message: parsed.data.message,
+          sourcePage: window.location.pathname,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to submit enquiry");
+      }
+
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+      setSubmitError(
+        "We could not submit your enquiry right now. Please try again or contact us on WhatsApp.",
+      );
+    }
   };
 
   if (status === "sent") {
@@ -264,7 +296,7 @@ export function EnquiryForm({
 
       {status === "error" && (
         <p className="text-xs text-destructive" role="alert">
-          Please correct the highlighted fields and try again.
+          {submitError || "Please correct the highlighted fields and try again."}
         </p>
       )}
 

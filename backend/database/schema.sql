@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS enquiries (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  event_type VARCHAR(80) NOT NULL,
+  preferred_date DATE NOT NULL,
+  guest_count VARCHAR(30) NOT NULL,
+  package_preference VARCHAR(50) NOT NULL,
+  message TEXT NULL,
+  source_page VARCHAR(255) NULL,
+  status ENUM('new', 'contacted', 'booked', 'lost') NOT NULL DEFAULT 'new',
+  ip_address VARCHAR(45) NULL,
+  user_agent VARCHAR(500) NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  INDEX idx_enquiries_status_created_at (status, created_at),
+  INDEX idx_enquiries_preferred_date (preferred_date),
+  INDEX idx_enquiries_phone (phone)
+);
