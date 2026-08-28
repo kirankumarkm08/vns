@@ -9,7 +9,13 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { venue } from "@/data/venue";
 import { cn } from "@/lib/utils";
 
-const nav = [
+type NavItem = {
+  label: string;
+  to: string;
+  pill?: boolean;
+};
+
+const nav: NavItem[] = [
   // { label: "Venus Park", to: "/venus-park", pill: true },
   // { label: "Home", to: "/" },
   { label: "Halls", to: "/#halls" },
