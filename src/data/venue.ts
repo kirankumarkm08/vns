@@ -241,7 +241,7 @@ export const pricingTiers: PricingTier[] = [
   {
     slug: "silver",
     name: "Silver",
-    price: 75000,
+    price: 74999,
     tagline: "Intimate celebrations",
   },
   {
