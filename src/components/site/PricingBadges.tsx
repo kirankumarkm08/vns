@@ -116,10 +116,15 @@ function PricingBadge({ tier, index }: { tier: PricingTier; index: number }) {
               Starting at
             </span>
             <span
-              className="badge-price mt-1 block font-display text-[2.6rem] leading-none"
+              className="mt-1 flex items-end justify-center gap-2"
               style={{ color: meta.ink }}
             >
-              {inr(tier.price)}
+              <span className="badge-price block font-display text-[2.6rem] leading-none">
+                {inr(tier.price)}
+              </span>
+              <span className="pb-1 text-[0.65rem] uppercase tracking-[0.18em] opacity-70">
+                + GST
+              </span>
             </span>
           </p>
 

@@ -17,21 +17,13 @@ const columns = [
     ],
   },
   {
-    title: "Events",
-    links: [
-      { label: "Weddings", to: "/weddings" },
-      { label: "Corporate Events", to: "/corporate-events" },
-      { label: "Book Now", to: "/booking" },
-    ],
-  },
-  {
     title: "Packages",
     links: [
-      { label: "All packages", to: "/packages" },
-      { label: "Silver Package", to: "/booking?package=Silver" },
-      { label: "Gold Package", to: "/packages/gold" },
-      { label: "Platinum Package", to: "/packages/platinum" },
-      { label: "Diamond Package", to: "/packages/diamond" },
+      { label: "All packages", to: "/#packages" },
+      { label: "V hall", to: "/#packages" },
+      { label: "N hall", to: "/#packages" },
+      { label: "S hall", to: "/#packages" },
+      { label: "VNS hall", to: "/#packages" },
     ],
   },
 ];
@@ -49,7 +41,7 @@ export function Footer() {
   return (
     <footer className="bg-ink text-ivory">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-12">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(2,1fr)] lg:gap-12">
           <div>
             <div className="flex min-w-0 items-center gap-3">
               <img

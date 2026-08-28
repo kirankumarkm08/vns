@@ -10,13 +10,12 @@ import { venue } from "@/data/venue";
 import { cn } from "@/lib/utils";
 
 const nav = [
-  { label: "Venus Park", to: "/venus-park", pill: true },
+  // { label: "Venus Park", to: "/venus-park", pill: true },
   // { label: "Home", to: "/" },
   { label: "Halls", to: "/#halls" },
-  { label: "Gallery", to: "/#gallery" },
   { label: "Packages", to: "/#packages" },
   { label: "Stories", to: "/#stories" },
-  { label: "Contact", to: "/#contact" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export function Header() {
@@ -110,7 +109,7 @@ export function Header() {
           </Button> */}
 
           <Button asChild variant="gold" size="lg" className="hidden md:inline-flex">
-            <Link href="/booking">Book Now</Link>
+            <Link href="/contact">Book Now</Link>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -135,7 +134,7 @@ export function Header() {
               <div className="mt-8 flex flex-col gap-3">
                 <SheetClose asChild>
                   <Button asChild variant="gold" size="lg">
-                    <Link href="/booking">Book Now</Link>
+                    <Link href="/contact">Book Now</Link>
                   </Button>
                 </SheetClose>
                 <Button asChild variant="outline" size="lg">

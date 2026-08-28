@@ -8,10 +8,7 @@ import {
   LandingImageCarousel,
   Pavilions,
   ReserveCta,
-
   Location,
-
-
 } from "@/components/site/celebration";
 
 export const metadata: Metadata = {
@@ -33,6 +30,7 @@ export default function HomePage() {
       <DivineHero video />
 
       <Location />
+      <CuratedPackages />
       <LandingImageCarousel />
       {/* <CuratedPackages />
       <GrandStage />
@@ -41,12 +39,11 @@ export default function HomePage() {
       <ReserveCta /> */}
 
       <Pavilions />
-      <CuratedPackages />
+      {/* <CuratedPackages /> */}
       {/* <GrandStage /> */}
 
       <FamilyStories />
       {/* <ReserveCta /> */}
-
     </>
   );
 }

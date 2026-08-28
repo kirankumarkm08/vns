@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Birthstone } from "next/font/google";
+import { Tangerine } from "next/font/google";
 
 import {
   ArrowDown,
@@ -36,11 +36,45 @@ import { HeroVideo } from "./HeroVideo";
 import { Reveal } from "./Reveal";
 import { Section } from "./Section";
 
-const hallNameFont = Birthstone({
+const hallInitialFont = Tangerine({
   subsets: ["latin"],
-  weight: "400",
+  weight: "700",
   display: "swap",
 });
+
+function HallCardName({
+  name,
+  featured = false,
+}: {
+  name: string;
+  featured?: boolean;
+}) {
+  const [initials, ...rest] = name.split(" ");
+  const hallText = rest.join(" ");
+
+  return (
+    <h3 className="mt-1 flex items-end gap-1.5 leading-none">
+      <span
+        className={cn(
+          hallInitialFont.className,
+          "text-5xl font-bold leading-[0.78] tracking-normal text-gold"
+        )}
+      >
+        {initials}
+      </span>
+      {hallText && (
+        <span
+          className={cn(
+            "pb-1 text-2xl font-medium leading-none tracking-normal",
+            featured ? "text-ivory" : "text-ink"
+          )}
+        >
+          {hallText}
+        </span>
+      )}
+    </h3>
+  );
+}
 
 /* =========================================================
    NAVIGATION
@@ -1807,7 +1841,7 @@ export function Location() {
 
       {/* EXPLORE VENUE */}
 
-      <div className="mt-[20px] flex justify-center md:mt-[40px] lg:mt-[60px]">
+      {/* <div className="mt-[20px] flex justify-center md:mt-[40px] lg:mt-[60px]">
         <Button
           asChild
           variant="outline"
@@ -1834,7 +1868,7 @@ export function Location() {
             />
           </Link>
         </Button>
-      </div>
+      </div> */}
     </Section>
   );
 }
@@ -2092,12 +2126,28 @@ export function CuratedPackages() {
                     </span>
                   </span>
 
-                  <p className="w-full text-center text-3xl font-black leading-none tracking-normal text-ink">
-                    {inr(
-                      packagePrices.get(
-                        tier.name
-                      ) ?? 0
-                    )}
+                  <p className="flex w-full items-end justify-center gap-2 text-center text-3xl font-black leading-none tracking-normal text-ink">
+                    <span>
+                      {inr(
+                        packagePrices.get(
+                          tier.name
+                        ) ?? 0
+                      )}
+                    </span>
+                    <span className="pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-ink/70">
+                      + GST
+                    </span>
+                  </p>
+                  <p className="w-full text-right text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-ink/55">
+                    <span className="relative inline-block pr-2">
+                      Conditions applied
+                      <span
+                        aria-hidden="true"
+                        className="absolute -right-0.5 -top-1 text-[0.7rem] leading-none text-ink/70"
+                      >
+                        *
+                      </span>
+                    </span>
                   </p>
                 </div>
               </div>
@@ -2125,27 +2175,22 @@ export function CuratedPackages() {
                 >
                   <span
                     className={cn(
-                      "relative z-10 grid h-11 w-11 shrink-0 place-items-center border",
+                      "relative z-10 h-12 w-12 shrink-0 overflow-hidden border bg-ink",
                       tier.featured
-                        ? "border-gold/55 bg-gold text-ink"
-                        : "border-gold/60 bg-ink text-gold"
+                        ? "border-gold/55"
+                        : "border-gold/60"
                     )}
                   >
-                    <Star className="h-4 w-4 fill-current" aria-hidden="true" />
+                    <img
+                      src="/Untitled_design__1_-removebg-preview.png"
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute left-1/2 top-1/2 h-24 w-24 max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
+                    />
                   </span>
 
-                  <span className="relative z-10 min-w-0">
-                    <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-gold">
-                      Venue
-                    </span>
-                    <h3
-                      className={cn(
-                        hallNameFont.className,
-                        "mt-1 truncate text-4xl leading-none tracking-normal"
-                      )}
-                    >
-                      {tier.cardName}
-                    </h3>
+                  <span className="relative z-10 min-w-0 pb-1">
+                    <HallCardName name={tier.cardName} featured={tier.featured} />
                   </span>
                 </div>
               </div>

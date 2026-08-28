@@ -30,9 +30,9 @@ export const venue = {
     { day: "Sunday", time: "10:00 am – 6:00 pm" },
   ],
   social: {
-    instagram: "https://instagram.com",
-    facebook: "https://facebook.com",
-    youtube: "https://youtube.com",
+    instagram: "https://www.instagram.com/vns.park25/",
+    facebook: "https://www.facebook.com/share/1Cw1Lrskar/?mibextid=wwXIfr",
+    youtube: "https://youtu.be/3XIFyp-NAEA",
   },
   googleReviewsUrl: "https://www.google.com/maps",
 };
@@ -241,7 +241,7 @@ export const pricingTiers: PricingTier[] = [
   {
     slug: "silver",
     name: "Silver",
-    price: 49999,
+    price: 75000,
     tagline: "Intimate celebrations",
   },
   {
