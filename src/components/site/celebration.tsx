@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Birthstone } from "next/font/google";
 
 import {
   ArrowDown,
@@ -34,6 +35,12 @@ import { cn } from "@/lib/utils";
 import { HeroVideo } from "./HeroVideo";
 import { Reveal } from "./Reveal";
 import { Section } from "./Section";
+
+const hallNameFont = Birthstone({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 /* =========================================================
    NAVIGATION
@@ -499,6 +506,7 @@ const showcase = [
 const packages = [
   {
     name: "Silver",
+    cardName: "V hall",
     motif: "",
     note: "8 Hours | 50 to 250 Guests",
     href: "/booking?package=Silver",
@@ -514,6 +522,7 @@ const packages = [
 
   {
     name: "Gold",
+    cardName: "N hall",
     motif: "Marigold",
     note: "8 Hours | 300 to 1500 Guests",
     href: "/booking?package=Gold",
@@ -529,6 +538,7 @@ const packages = [
 
   {
     name: "Platinum",
+    cardName: "S hall",
     motif: "Kanchipuram",
     note: "8 Hours | 500 to 2000 Guests",
     href: "/booking?package=Platinum",
@@ -544,6 +554,7 @@ const packages = [
 
   {
     name: "Diamond",
+    cardName: "VNS hall",
     motif: "Chola Royal",
     note: "Full Day | Venus Hall",
     href: "/booking?package=Diamond",
@@ -2097,9 +2108,47 @@ export function CuratedPackages() {
                 </p>
               )} */}
 
-              <h3 className={cn("relative z-10 font-display text-3xl", tier.motif && "mt-3", tier.featured && "text-center")}>
-                {tier.name}
-              </h3>
+              <div
+                className={cn(
+                  "relative z-10 flex min-h-20 items-center",
+                  tier.featured ? "justify-center" : "justify-start"
+                )}
+              >
+                <div
+                  className={cn(
+                    "relative inline-flex max-w-full items-center gap-3 border px-4 py-3 shadow-[var(--shadow-soft)]",
+                    "before:absolute before:inset-1 before:border before:content-['']",
+                    tier.featured
+                      ? "border-ink/25 bg-ink text-ivory before:border-gold/45"
+                      : "border-gold/50 bg-gradient-to-br from-ivory via-white to-gold-soft/40 text-ink before:border-gold/35"
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "relative z-10 grid h-11 w-11 shrink-0 place-items-center border",
+                      tier.featured
+                        ? "border-gold/55 bg-gold text-ink"
+                        : "border-gold/60 bg-ink text-gold"
+                    )}
+                  >
+                    <Star className="h-4 w-4 fill-current" aria-hidden="true" />
+                  </span>
+
+                  <span className="relative z-10 min-w-0">
+                    <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-gold">
+                      Venue
+                    </span>
+                    <h3
+                      className={cn(
+                        hallNameFont.className,
+                        "mt-1 truncate text-4xl leading-none tracking-normal"
+                      )}
+                    >
+                      {tier.cardName}
+                    </h3>
+                  </span>
+                </div>
+              </div>
 
               <p
                 className={cn(

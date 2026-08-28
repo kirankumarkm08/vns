@@ -3,9 +3,6 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
 import "./globals.css";
-import { Header } from "@/components/site/Header";
-import { Footer } from "@/components/site/Footer";
-import { StickyActions } from "@/components/site/StickyActions";
 import { venue } from "@/data/venue";
 
 const display = Cormorant_Garamond({
@@ -81,10 +78,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Header />
-        <main className="pb-16 md:pb-0">{children}</main>
-        <Footer />
-        <StickyActions />
+        {children}
       </body>
     </html>
   );
