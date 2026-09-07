@@ -43,7 +43,12 @@ export const metadata: Metadata = {
       "Premium convention hall for weddings, receptions, corporate events and celebrations up to 1,000 guests. Catering, decoration, guest rooms and full event coordination.",
     images: [ogImage],
   },
-  icons: [{ rel: "icon", url: "/logo-vns.png", type: "image/png" }],
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "256x256" },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "256x256" },
+    ],
+  },
 };
 
 export const viewport: Viewport = {
