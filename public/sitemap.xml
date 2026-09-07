@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TODO: set BASE_URL to the live domain once the project is named or a custom domain is added. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>/</loc><priority>1.0</priority></url>
-  <url><loc>/home</loc><priority>0.9</priority></url>
-  <url><loc>/about</loc><priority>0.7</priority></url>
-  <url><loc>/venue</loc><priority>0.8</priority></url>
-  <url><loc>/packages</loc><priority>0.9</priority></url>
-  <url><loc>/packages/gold</loc><priority>0.7</priority></url>
-  <url><loc>/packages/platinum</loc><priority>0.8</priority></url>
-  <url><loc>/packages/diamond</loc><priority>0.7</priority></url>
-  <url><loc>/weddings</loc><priority>0.9</priority></url>
-  <url><loc>/corporate-events</loc><priority>0.8</priority></url>
-  <url><loc>/gallery</loc><priority>0.7</priority></url>
-  <url><loc>/testimonials</loc><priority>0.6</priority></url>
-  <url><loc>/faq</loc><priority>0.6</priority></url>
-  <url><loc>/contact</loc><priority>0.9</priority></url>
-  <url><loc>/check-availability</loc><priority>1.0</priority></url>
+  <url><loc>https://vnspark.in/</loc><priority>1.0</priority></url>
+  <url><loc>https://vnspark.in/about</loc><priority>0.7</priority></url>
+  <url><loc>https://vnspark.in/venue</loc><priority>0.8</priority></url>
+  <url><loc>https://vnspark.in/packages</loc><priority>0.9</priority></url>
+  <url><loc>https://vnspark.in/packages/gold</loc><priority>0.7</priority></url>
+  <url><loc>https://vnspark.in/packages/platinum</loc><priority>0.8</priority></url>
+  <url><loc>https://vnspark.in/packages/diamond</loc><priority>0.7</priority></url>
+  <url><loc>https://vnspark.in/weddings</loc><priority>0.9</priority></url>
+  <url><loc>https://vnspark.in/corporate-events</loc><priority>0.8</priority></url>
+  <url><loc>https://vnspark.in/gallery</loc><priority>0.7</priority></url>
+  <url><loc>https://vnspark.in/testimonials</loc><priority>0.6</priority></url>
+  <url><loc>https://vnspark.in/faq</loc><priority>0.6</priority></url>
+  <url><loc>https://vnspark.in/contact</loc><priority>0.9</priority></url>
+  <url><loc>https://vnspark.in/check-availability</loc><priority>1.0</priority></url>
 </urlset>
