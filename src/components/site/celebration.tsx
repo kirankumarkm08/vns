@@ -563,8 +563,8 @@ const packages = [
       "Non-AC package",
       "8-hour event booking",
       "V Hall + N Hall + S Hall",
-      "Premium decor and stage setup",
-      "Spacious guest seating and dedicated dining",
+
+      "Spacious guest seating and dedicated dining space",
       "Ample parking",
       "Valet parking available",
     ],
