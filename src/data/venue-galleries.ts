@@ -84,34 +84,34 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
         alt: "Guest seating arranged beneath the N Hall canopy",
       },
       {
-        src: "/venues/n-hall/n-hall-lawn-dining.webp",
-        label: "Lawn Dining",
-        alt: "Outdoor dining setup on the N Hall lawn",
-      },
-      {
         src: "/venues/n-hall/n-hall-ceremony-stage.webp",
-        label: "Ceremony Stage",
-        alt: "Traditional ceremony stage decorated at N Hall",
+        label: "Outdoor lawn",
+        alt: "Outdoor dining setup on the N Hall lawn at Venus Park & Convention Centre",
       },
       {
         src: "/venues/n-hall/n-hall-entrance-aisle.webp",
-        label: "Entrance Aisle",
-        alt: "Decorated entrance aisle leading into N Hall",
-      },
-      {
-        src: "/venues/n-hall/n-hall-lawn-reception.webp",
-        label: "Lawn Reception",
-        alt: "Reception tables arranged across the N Hall lawn",
-      },
-      {
-        src: "/venues/n-hall/n-hall-ceremony-aisle.webp",
-        label: "Ceremony Aisle",
-        alt: "Ceremony aisle and stage viewed across the N Hall lawn",
+        label: "Ceremony Stage",
+        alt: "Traditional decorated ceremony stage at N Hall at Venus Park & Convention Centre",
       },
       {
         src: "/venues/n-hall/n-hall-washroom-hand-wash.webp",
+        label: "Entrance Aisle",
+        alt: "Decorated entrance aisle leading toward the N Hall ceremony stage",
+      },
+      {
+        src: "/venues/n-hall/n-hall-ceremony-aisle.webp",
+        label: "Open lawn",
+        alt: "Reception tables arranged across the N Hall lawn at Venus Park & Convention Centre",
+      },
+      {
+        src: "/venues/n-hall/n-hall-lawn-reception.webp",
+        label: "Ceremony Aisle",
+        alt: "Ceremony aisle viewed from the decorated N Hall stage",
+      },
+      {
+        src: "/venues/n-hall/n-hall-lawn-dining.webp",
         label: "Washroom & Hand Wash",
-        alt: "Washroom and hand-wash facilities serving N Hall",
+        alt: "N Hall washroom and hand-wash facility at Venus Park & Convention Centre",
       },
       {
         src: "/venues/n-hall/n-hall-parking.webp",
@@ -173,19 +173,19 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
         alt: "Dining service in progress inside S Hall",
       },
       {
-        src: "/venues/s-hall/s-hall-audience.webp",
-        label: "Large Gathering",
-        alt: "Large seated gathering inside S Hall",
-      },
-      {
         src: "/venues/s-hall/s-hall-kitchen.webp",
-        label: "Kitchen",
-        alt: "Panoramic view of the S Hall kitchen preparation area",
+        label: "Large Gathering",
+        alt: "Large seated gathering inside S Hall at Venus Park & Convention Centre",
       },
       {
         src: "/venues/s-hall/s-hall-washroom-hand-wash.webp",
+        label: "Kitchen",
+        alt: "S Hall kitchen facility at Venus Park & Convention Centre",
+      },
+      {
+        src: "/venues/s-hall/s-hall-audience.webp",
         label: "Washroom & Hand Wash",
-        alt: "Washroom and hand-wash facilities serving S Hall",
+        alt: "S Hall washroom and hand-wash facility at Venus Park & Convention Centre",
       },
       {
         src: "/venues/s-hall/s-hall-parking-aerial.webp",
